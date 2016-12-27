@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Author  : Luis M Pena
 # Date    : 12/15/2016
 # Purpose : Manage script for various system administration scripts.
@@ -81,7 +81,7 @@ function reset {
 
 function scan_ports {
    # Run netstat and echo shove that  into results.txt
-   _SCAN=$(netstat -tulpn |grep LISTEN)
+   _SCAN=$( netstat -tulpn |grep LISTEN )
 
    #_FILTER=$( awk '/*tcp6/{print}' ./results_filterd.txt )
    _OUTPUT=$_SCAN $_FILTER

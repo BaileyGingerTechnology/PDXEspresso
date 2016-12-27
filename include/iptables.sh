@@ -1,4 +1,4 @@
-#!/   bin/sh
+#!/bin/bash
 # Author  : Luis M Pena
 # Date    : 12/24/2016
 # Purpose : IP Table functions that are managed by manage.sh
@@ -28,6 +28,7 @@
     _IPDISPLAY=$( iptables -L);
     _IPFLUSH=$( iptables -F);
    
+    _IPT="/sbin/iptables"
 
 function press_enter {
 
@@ -68,15 +69,15 @@ function add_port {
     _PORT=
     read _PORT;
     
-    iptables -A INPUT -p tcp -m tcp --dport "$_PORT" -j ACCEPT
-
+    #iptables -A INPUT -p tcp -m tcp --dport "$_PORT" -j ACCEPT
+    $_IPT -A INPUT -p tcp --dport "$_PORT" -j ACCEPT
     
     echo "Done ..." 
     echo "Added port $_PORT"
 
     else
     echo "Which UDP port do you wish to add"
-     iptables -A INPUT -p udp -m udp --dport "$_PORT" -j ACCEPT 
+    $_IPT -A INPUT -p udp -m udp --dport "$_PORT" -j ACCEPT 
 
     
 
@@ -87,43 +88,43 @@ function remove_port {
 
     echo "Removing multiple ports";
     # Remove Ports Varables
-    _IPBLKTCP=$( iptables -L);
-    _IPBLKUDP=$( iptables -L);
+    _IPBLKTCP=$( $_IPT -L);
+    _IPBLKUDP=$( $_IPT -L);
 }
 
 
 function nuke_tables { 
-    _IPNUKE=
     
     echo "Nuke IP TABLES AND ALL CHAINS AND ALL POLCIES?"
     echo " Y or N"
     
+    _IPNUKE=
     read _IPNUKE
 
-    if [ "$_IPNUKE" = "Y" ]
-    then
-    echo " Now nuking firewall"
-    iptables -F
-    iptables -X
-    iptables -t nat -F
-    iptables -t nat -X
-    iptables -t mangle -F
-    iptables -t mangle -X
-    iptables -t raw -F
-    iptables -t raw -X
-    iptables -t security -F
-    iptables -t security -X
-    iptables -P INPUT ACCEPT
-    iptables -P FORWARD ACCEPT
-    iptables -P OUTPUT ACCEPT
-
-    
-    echo "Done..."
+    if [ "$_IPNUKE" = "Y" ];
+    then echo " Now nuking firewall"
+	$_IPT -F
+	$_IPT -X
+	$_IPT -t nat -F
+	$_IPT -t nat -X
+	$_IPT -t mangle -F
+	$_IPT -t mangle -X
+	$_IPT -t raw -F
+	$_IPT -t raw -X
+	$_IPT -t security -F
+	$_IPT -t security -X
+	$_IPT -P INPUT ACCEPT
+	$_IPT -P FORWARD ACCEPT
+	$_IPT -P OUTPUT ACCEPT
+	
+	echo "Done..."
 
     else
+	
 	echo "You decided to rethink your life.."
-	echo "Now exiting"
-	exit 0
+	echo "Now exiting..."
+	
+	exit 0;
     fi
 }
 
@@ -137,9 +138,8 @@ function restore_tables {
     _CHOICE=
     read _CHOICE
 
-   if [ "$_CHOICE" = "1" ]
-    then
-    iptables-save > source/saved
+   if [ "$_CHOICE" = "1" ];
+    then iptables-save > source/saved
     
    else
     echo "Full path to restore file, full path and name..";
@@ -172,7 +172,7 @@ function install_iptables {
     #this function will donwload and install iptables depending on your OS and package manager
     echo "Installing IP tables";
 
-    _IPINSTALL=$( iptables -L);
+    _IPINSTALL=$( $_IPT -L);
 
 
     echo "Done ..."
