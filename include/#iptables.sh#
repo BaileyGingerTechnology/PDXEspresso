@@ -101,6 +101,7 @@ function nuke_tables {
     read _IPNUKE
 
     if [ "$_IPNUKE" = "Y" ]
+    
     then
     echo " Now nuking firewall"
     iptables -F
