@@ -27,11 +27,6 @@ source ./include/source/iptables_functions.sh
     #iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
     #iptables -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
 
-
-   
-    
-
-
 function main {
 
     echo "Main Function";

@@ -46,6 +46,14 @@ fi
 }
 
 
+function stop_service { 
+
+    echo "type in service you would like to stop";
+    
+
+}
+
+
 function scan_ports {
    # Run netstat and echo shove that  into results.txt
    _SCAN=$( netstat -tulpn |grep LISTEN )
@@ -64,18 +72,12 @@ function scan_ports {
 
 } # end scan_ports
 
-function init_tables {
-    #Simple function that launches Iptables script
-    
-    bash ./include/iptables.sh
-
-}
 
 function find_users {
 
     echo "Finding users in both /etc/passwd & /etc/shadow"
-   _PASSWDF=$( awk '/$/{print}' /etc/passwd)
-   _SHADOWF=$( awk '/$/{print}' /etc/shadow)
+   _PASSWDF=$( cut -d: -f1 /etc/passwd)
+   _SHADOWF=$( cut -d: -f1 /etc/shadow)
 
    echo "Printing /etc/passwd";
    echo "$_PASSWDF";
@@ -94,10 +96,18 @@ function find_users {
 function find_groups {
 
     echo "Finding Groups";
-    
+    getent groups *
 
 } #end find_groups
 
+
+function find_files { 
+
+    echo " Type in a query to have PDXEspresso search "
+    echo " 1) Search entire / "
+    echo " 2) Search /etc "
+
+}
 
 function find_cpui {
 
@@ -106,21 +116,84 @@ function find_cpui {
     
     echo $_CPUINFO > ./debug/results.txt
     echo $_CPUINFO
-
+    echo -e "-------------"
+    
+    echo "ISSUE INFO";
+    _ISSUEINFO=$( cat /etc/issue );
+    _RELEASEINFO=$( cat /etc/*-release);
+    echo $_ISSUEINFO;
+    
+    echo -e "------------"
+    echo "REALESE INFO";
+    echo $_RELEASEINFO;
+    
 }
 
-function manage_sshd {
+function find_package { 
+    
+    echo " Type in a query to have PDXEspresso find a package "
+    echo " 1) Search entire / "
+    echo " 2) Search /etc "
+}
 
-    echo "How would you like to manage the SSH service";
-    reset
-} # end manage_sshd
+
+function find_distro { 
+    
+    echo " Type in a query to have PDXEspresso find a package "
+    echo " 1) Search entire / "
+    echo " 2) Search /etc "
+}
+
+function tail_auth { 
+
+    tail -f /var/log/auth.log
+}
+
+function clear_debug { 
 
 
+if [ -d "./debug" ];
 
+then
+    echo " Directories  exist!.... "
+    echo " Now deleting ...."
+    
+    rm -R ./debug
+
+    echo "Done..."
+    
+else
+    echo " Directories do not exist, nothing to delete ..."
+    #Main Debug Folder
+    
+fi
+
+    
+}
 
 function find_services {
 
     echo "Now Finding Services";
 
 } # end find_services
-  
+
+
+
+######################################
+## Functions that call another scripts
+######################################
+
+function init_sshd {
+    #Simple function that launches sshd script
+    bash ./include/sshd.sh
+} # end manage_sshd
+
+function init_tables {
+    #Simple function that launches Iptables script
+    bash ./include/iptables.sh
+}
+
+function init_apache {
+    #Simple function that launches Iptables script
+    bash ./include/apache.sh
+} 

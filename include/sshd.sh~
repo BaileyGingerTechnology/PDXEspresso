@@ -1,0 +1,4 @@
+#!/bin/bash 
+# Author  : Luis M Pena
+# Date    : 12/8/2016
+# Purpose : Main script that manages the sshd service.

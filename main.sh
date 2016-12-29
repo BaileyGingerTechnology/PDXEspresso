@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 # Author  : Luis M Pena
 # Date    : 12/15/2016
 # Purpose : Main script for various system administration scripts.
@@ -47,7 +47,7 @@ echo "8)  Find Package Information";
 echo "9)  Find Distro Information";
 echo "10) Tail Auth log";
 echo "11) clear all debug logs and clear all temp files";
-echo "12) Find Services ";
+echo "12) Find/Stop Services ";
 
 read INPUT
 
@@ -55,16 +55,16 @@ case $INPUT in
 
     1) scan_ports ; press_enter ;;
     2) find_users ; press_enter ;;
-    3) free ; press_enter ;;
+    3) find_files ; press_enter ;;
     4) find_cpui ; press_enter ;;
-    5) manage_sshd ; press_enter ;;
-    6) free ; press_enter ;;
+    5) init_sshd ; press_enter ;;
+    6) init_apache ; press_enter ;;
     7) init_tables ; press_enter ;;
-    8) free ; press_enter ;;
-    9) free ; press_enter ;;
-    10) free ; press_enter ;;
-    11) free ; press_enter ;;
-    12) free ; press_enter ;;
+    8) find_package ; press_enter ;;
+    9) find_distro ; press_enter ;;
+    10) tail_auth ; press_enter ;;
+    11) clear_debug ; press_enter ;;
+    12) find_service ; press_enter ;;
 
     0) exit ;;
     *) echo "Enter a digit above and try not to break this program.";
