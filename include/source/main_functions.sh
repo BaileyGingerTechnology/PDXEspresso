@@ -45,10 +45,44 @@ fi
 
 }
 
+function find_init { 
+
+    # This function will determine what init manager is being used
+    # And will return a value that will heavily be relied on in other functions
+    # functions that stop, install services and packages . 
+
+    _SYSTEMD=0
+    _OPENRC=0
+    _UPSTART=0
+
+    #Final Passthrough value will be set to whatever is found
+
+    _FINAL=
+
+    # Check if host has systemV openrc related scripts
+    
+    echo "you have this type of init";
+    
+    if [ -d /etc/init.d/ ] ;
+    then
+	_OPENRC=1
+	_FINAL=$_OPENRC
+
+	echo $_FINAL
+	echo "Can use service"
+	_SERVICE=$( service )
+	_INIT=$( /etc/init.d )
+
+   else 
+	echo "systemdD"
+  fi
+}
+
 
 function stop_service { 
 
     echo "type in service you would like to stop";
+    
     
 
 }
