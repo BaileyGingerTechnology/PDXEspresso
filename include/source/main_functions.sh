@@ -72,7 +72,7 @@ function scan_ports {
 
 } # end scan_ports
 
-
+########### User Management Functions
 function find_users {
 
     echo "Finding users in both /etc/passwd & /etc/shadow"
@@ -100,6 +100,16 @@ function find_groups {
 
 } #end find_groups
 
+function change_pass { 
+
+    echo "What would you like to do" 
+    echo "  PDXEspresso password super duper totally awesome 1000% sage mode changer "
+    echo " 1) change user password "
+    echo " 2) Have PDX expresso go through the list of users and change all users on system one at a time"
+
+}
+
+##################
 
 function find_files { 
 
@@ -178,6 +188,27 @@ function find_services {
 } # end find_services
 
 
+function dir_bkrestore { 
+
+    echo "This function backs up config files and directories"
+    
+    echo "What Would you like to do ? "
+    echo "1) Backup Config(s) or Dir(s) "
+    echo "2) Restore Config(s) or Dir(s)"
+
+
+    echo "1) Backup /etc" 
+    echo "2) Backup /var/www/httpd or /var/www/html "
+    echo "3) Backup /var/log  "
+
+
+}
+
+function find_log { 
+
+    #search and find log files
+    echo " Find logs now";
+}
 
 ######################################
 ## Functions that call another scripts

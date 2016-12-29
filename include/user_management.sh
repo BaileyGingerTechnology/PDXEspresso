@@ -1,14 +1,14 @@
 #!/bin/bash 
 # Author  : Luis M Pena
 # Date    : 12/28/2016
-# Purpose : Script that manages the apache service. 
+# Purpose : Script that manages users and groups. 
 
 # Include source files
 source ./include/source/general_functions.sh
-source ./include/source/apache_functions.sh
+source ./include/source/usermanagement_functions.sh   
 function main {
 
-    echo "This is the Apache Service manager";
+    echo "This is the user and groups management interface";
 
 }
 
