@@ -48,7 +48,71 @@ fi
 
 }
 
-function find_init { 
+function stop_service { 
+
+   #Declare Variables
+    _OPENRC=0
+    _SYSTEMD=0
+    _UPSTART=0
+    _FINAL=0
+    _INIT=0
+
+   
+    if [ -d /etc/init.d/ ] ; # Start Main If Statement
+    then
+	 _OPENRC=1
+	 _FINAL=$_OPENRC
+
+
+	echo "This system has OpenRC, This host can use service or the traditional /etc/init.d/SERVICE start|stop|restart"
+	
+	echo $_FINAL
+	
+	if [ $_FINAL=1 ] ;
+	    then 
+	     echo "Using OPENRC for sure"
+	     echo $_FINAL
+	     
+	     
+	     echo "Type in the service you would like to stop"
+	     _SER=
+	     read _SER
+	     
+	     echo "Would you like to stop start or restart?"
+	     
+	     _SSR=
+	     read _SSR
+
+	     echo $( service $_SER $_SSR );
+
+
+	    else echo "logic error"
+	fi # end first inner IF statement
+       
+   else 
+	_SYSTEMD=2
+	 _FINAL2=$_SYSTEMD
+	echo "SystemD has been found"
+	##
+	if [ $_FINAL2=2 ] ;
+	    then echo "Using SYSTEMD for sure"
+	    else echo "logic error";
+	fi # end second inner IF statementif 
+	##
+
+  fi # end Main If statement 
+
+  
+
+}
+
+### This function will not be used
+## but will be kept in here to remind me of the way i wantred to code
+## the service manager
+## bash  as forced me to use unconventional way of coding
+## I do not like it. But this is how it will be. 
+ 
+function stop_servicessss { 
 
     # This function will determine what init manager is being used
     # And will return a value that will heavily be relied on in other functions
@@ -58,27 +122,23 @@ function find_init {
     export _OPENRC=0
     export _UPSTART=0
 
-    #Final Passthrough value will be set to whatever is found
-
-    export _FINAL=
-
-    # Check if host has systemV openrc related scripts
     
-    echo "you have this type of init script";
+    # Check if host has systemV openrc related scripts
     
     if [ -d /etc/init.d/ ] ;
     then
-	export _OPENRC=1
+	 _OPENRC=1
 
-	echo "Can use service"
-	export _SERVICE=$( service )
+	echo "This system has OpenRC, This host can use service or the traditional /etc/init.d/SERVICE start|stop|restart"
+	
+	 _SERVICE=$( service )
 	#export _INIT=$( /etc/init.d/ stop )
-	#export _FINAL=$_OPENRC
-
+     
 	#echo $_FINAL
 	
-	export _FINAL=$_SERVICE
-	
+	 _FINAL= $_SERVICE
+	#echo $_FINAL
+
    elif [ -d /usr/lib/systemd/system ]; 
     then
 	echo "SystemD has been found"
@@ -91,16 +151,12 @@ function find_init {
 
   fi
 
-}
-
-
-function stop_service { 
-
-    
-    echo "type in service you would like to stop";
-    echo "You have"
-    _STOPSERVICE=( $_FINAL --status-all )
-    echo "$_STOPSERVICE"
+    if [ $_OPENRC=187987897979792 ];
+       then
+	echo "type in service you would like to start|stop|restart";
+	echo "Currently Using $_FINAL init Manager" 
+	else echo "There is a mean ass error LUIS GET YOUR SHIT TOGETHER"
+    fi 
     
 }
 

@@ -29,7 +29,6 @@ function main {
 #Run create_dirs function
 check_root
 create_dirs
-find_init
 
 INPUT=
 
