@@ -5,6 +5,8 @@
 # Check to see if user has SUPER USER ACCESS
 function check_root {
 
+echo "You Are Currently using Bash $( bash --version )"
+
 if [ "$EUID" != 0 ];
     then echo "No Super User Access....Now Exiting..";
     
@@ -18,10 +20,11 @@ function create_dirs {
 if [ -d "./debug" ];
 
 then
-    echo " Directories already exist! " 
+    
+    echo -e " \nDirectories already exist! " 
     
 else
-    echo " Creating Directories ..."
+    echo -e "\nCreating Directories ..."
     #Main Debug Folder
     
     mkdir debug
@@ -51,40 +54,54 @@ function find_init {
     # And will return a value that will heavily be relied on in other functions
     # functions that stop, install services and packages . 
 
-    _SYSTEMD=0
-    _OPENRC=0
-    _UPSTART=0
+    export _SYSTEMD=0
+    export _OPENRC=0
+    export _UPSTART=0
 
     #Final Passthrough value will be set to whatever is found
 
-    _FINAL=
+    export _FINAL=
 
     # Check if host has systemV openrc related scripts
     
-    echo "you have this type of init";
+    echo "you have this type of init script";
     
     if [ -d /etc/init.d/ ] ;
     then
-	_OPENRC=1
-	_FINAL=$_OPENRC
+	export _OPENRC=1
 
-	echo $_FINAL
 	echo "Can use service"
-	_SERVICE=$( service )
-	_INIT=$( /etc/init.d )
+	export _SERVICE=$( service )
+	#export _INIT=$( /etc/init.d/ stop )
+	#export _FINAL=$_OPENRC
 
-   else 
-	echo "systemdD"
+	#echo $_FINAL
+	
+	export _FINAL=$_SERVICE
+	
+   elif [ -d /usr/lib/systemd/system ]; 
+    then
+	echo "SystemD has been found"
+	export _SYSTEMD=1
+	export _SYSTEMCTL= $( systemctl );
+	export _FINAL=$_SYSTEMCTL;
+	
+	echo $_FINAL
+	echo "SystemD will be used"
+
   fi
+
 }
 
 
 function stop_service { 
 
+    
     echo "type in service you would like to stop";
+    echo "You have"
+    _STOPSERVICE=( $_FINAL --status-all )
+    echo "$_STOPSERVICE"
     
-    
-
 }
 
 

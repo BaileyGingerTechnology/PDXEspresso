@@ -10,8 +10,6 @@ source ./include/source/general_functions.sh
 source ./include/source/main_functions.sh
 
 echo "
-
-                                                                                                          
 ______________   __  _____                                   
 | ___ \  _  \ \ / / |  ___|                                  
 | |_/ / | | |\ V /  | |__ ___ _ __  _ __ ___  ___ ___  ___   
@@ -20,8 +18,10 @@ ______________   __  _____
 \_|   |___/ \/   \/ \____/___/ .__/|_|  \___||___/___/\___/  
                              | |                             
                              |_|                          
-
-
+Author: Luis Miguel Pena @poszy
+Beta Version: 0.2
+Email: pena.m.luis@gmail.com
+For Latest Version Visit https://github.com/poszy/PDXEspresso
 ";
 
 function main {
@@ -65,7 +65,7 @@ case $INPUT in
     9) find_distro ; press_enter ;;
     10) tail_auth ; press_enter ;;
     11) clear_debug ; press_enter ;;
-    12) find_service ; press_enter ;;
+    12) stop_service ; press_enter ;;
 
     0) exit ;;
     *) echo "Enter a digit above and try not to break this program.";
