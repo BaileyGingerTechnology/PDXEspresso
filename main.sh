@@ -55,7 +55,7 @@ case $INPUT in
 
     1) scan_ports ; press_enter ;;
     2) find_users ; press_enter ;;
-    3) find_files ; press_enter ;;
+    3) init_findfiles ; press_enter ;;
     4) find_cpui ; press_enter ;;
     5) init_sshd ; press_enter ;;
     6) init_apache ; press_enter ;;

@@ -223,6 +223,48 @@ function find_files {
     echo " Type in a query to have PDXEspresso search "
     echo " 1) Search entire / "
     echo " 2) Search /etc "
+    echo " 3) Search for a STRING or SUBSTRING inside a file or directory "
+
+    # Function Variables
+    _CHOICE=
+ 
+    read _CHOICE
+    
+   if [ "$_CHOICE" = "1" ];
+    
+    then
+    
+      echo "Type in the name of config file OR Query to search entire root partition  "
+      _QUERY=
+      read _QUERY
+      
+      find / -type f -name "$_QUERY"
+      echo "Done ..." 
+  
+    elif [ "$_CHOICE" = "2" ]; 
+     
+      then 
+      echo "Type in the name of config file OR Query to search /etc"
+      _QUERY2=
+      read _QUERY2
+      
+      find /etc -type f -name "$_QUERY2" 
+
+    elif [ "$_CHOICE" = "3" ]; 
+      then 
+      
+      echo "Type in the STRING OR SUBSTRING"
+      _QUERY=
+      read _QUERY
+
+      echo "Type in location of file or directory"
+      _DIR=
+      read _DIR 
+     
+      find / -type f -name "$_QUERY" "$_DIR"
+        
+    fi 
+      
 
 }
 
@@ -335,3 +377,8 @@ function init_apache {
     #Simple function that launches Iptables script
     bash ./include/apache.sh
 } 
+
+function init_findfiles { 
+  #Simple function that launches Iptables script
+   bash ./include/searchfind.sh
+}
