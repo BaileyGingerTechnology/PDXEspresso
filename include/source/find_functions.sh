@@ -33,6 +33,7 @@ function find_byetc {
 function find_bystring { 
 
 	echo "Search for a string or query inside a specified directory or file "
+	echo "This will search for a STRING, not file. use two options 1 and 2 for that"
 	
 	echo "Type in location of directory"
       _DIR=
@@ -43,7 +44,9 @@ function find_bystring {
       _QUERY3=
       read _QUERY3
      
-      find -Ri "$_DIR" |grep "$_QUERY3" 
+      grep -Ri "$_QUERY3" * "$_DIR"
+      #  grep -Ri 4/ * /
+      # find 4 followed by / * everything in root / 
 
 }
 
@@ -107,7 +110,9 @@ function find_bycma {
 
 function find_bylog { 
 
-	echo " Searching for Logs "
+	echo " Searching for all log files "
+	find / . -type f -name "*.log"
+	echo "Done..."
 
 }
 

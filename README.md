@@ -57,7 +57,7 @@ License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 This is free software; you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 
-# January 3nd 2016
+# January 3nd 2017
 ______________   __  _____                                   
 | ___ \  _  \ \ / / |  ___|                                  
 | |_/ / | | |\ V /  | |__ ___ _ __  _ __ ___  ___ ___  ___   
@@ -105,7 +105,7 @@ Symbol: IP_NF_NAT [=y]
 
 [X]  Scan Ports
 [X]  User & Group Management
-3)  Search For config Files
+[X]  Search For config Files
 [X]  Display CPU Info
 5)  SSH Management
 6)  Apache Management
@@ -115,3 +115,7 @@ Symbol: IP_NF_NAT [=y]
 [X] Tail Auth log
 [X] clear all debug logs and clear all temp files
 [X] Find/Stop Services 
+
+# January 4th 2017
+As of today I have basic functionality in the functions 1-4 & 7 & 10-12.
+I plan to optimize the search functions once I have completed the script. 
