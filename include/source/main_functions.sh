@@ -179,44 +179,6 @@ function scan_ports {
 
 } # end scan_ports
 
-########### User Management Functions
-function find_users {
-
-    echo "Finding users in both /etc/passwd & /etc/shadow"
-   _PASSWDF=$( cut -d: -f1 /etc/passwd)
-   _SHADOWF=$( cut -d: -f1 /etc/shadow)
-
-   echo "Printing /etc/passwd";
-   echo "$_PASSWDF";
-   echo "--------------------------------------------------"
-   
-   echo "Printing /etc/shadow";
-   echo "$_SHADOWF"
-   echo "--------------------------------------------------"
-   # Need Sorting Expressions to sort everything nicely, and not just one line. 
-   echo $_PASSWDF > ./debug/log/users.txt
-   echo "Wrote output to ./debug/log/users.txt"
-
-} # end find_users
-
-
-function find_groups {
-
-    echo "Finding Groups";
-    getent groups *
-
-} #end find_groups
-
-function change_pass { 
-
-    echo "What would you like to do" 
-    echo "  PDXEspresso password super duper totally awesome 1000% sage mode changer "
-    echo " 1) change user password "
-    echo " 2) Have PDX expresso go through the list of users and change all users on system one at a time"
-
-}
-
-##################
 
 
 function find_cpui {
@@ -249,9 +211,17 @@ function find_package {
 
 function find_distro { 
     
-    echo " Type in a query to have PDXEspresso find a package "
-    echo " 1) Search entire / "
-    echo " 2) Search /etc "
+  _DISTRO=$( cat /etc/*-release | tr [:upper:] [:lower:] | grep -Poi '(debian|ubuntu|red hat|centos|gentoo|arch)' | uniq )
+
+  if [ -z $_DISTRO ]; then
+
+      _DISTRO='None of these distros were found, update your list '
+
+  fi
+
+  echo "Found Distrobution $_DISTRO"
+  export $_DISTRO
+
 }
 
 function tail_auth { 
@@ -332,4 +302,9 @@ function init_apache {
 function init_findfiles { 
   #Simple function that launches Iptables script
    bash ./include/searchfind.sh
+}
+
+function init_userman { 
+  #Simple function that launches Iptables script
+   bash ./include/user_management.sh
 }

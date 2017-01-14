@@ -6,6 +6,8 @@
 # Include source files
 source ./include/source/general_functions.sh
 source ./include/source/usermanagement_functions.sh   
+
+
 function main {
 
     echo "This is the user and groups management interface";

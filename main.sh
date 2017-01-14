@@ -36,15 +36,15 @@ until [ "$INPUT" = "0" ]; do
 
 echo "What would you like to do?";
 
-echo "1)  Scan Ports";
+echo "1)  Searh Ports";
 echo "2)  User & Group Management"; #Check Loged in users
 echo "3)  Search For config Files";
 echo "4)  Display CPU Info";
 echo "5)  SSH Management";
 echo "6)  Apache Management";
 echo "7)  IP Tables Management";
-echo "8)  Find Package Information";
-echo "9)  Find Distro Information";
+echo "8)  Package Management";
+echo "9)  Install Third Party Software (Splunk)";
 echo "10) Tail Auth log";
 echo "11) clear all debug logs and clear all temp files";
 echo "12) Find/Stop Services ";
@@ -54,7 +54,7 @@ read INPUT
 case $INPUT in
 
     1) scan_ports ; press_enter ;;
-    2) find_users ; press_enter ;;
+    2) init_userman ; press_enter ;;
     3) init_findfiles ; press_enter ;;
     4) find_cpui ; press_enter ;;
     5) init_sshd ; press_enter ;;
