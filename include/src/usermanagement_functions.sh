@@ -127,7 +127,9 @@ function add_togroup {
 
 	echo "What group will" "$_USERSTRINGTWO" "Be In?"
 	read _GROUPTWO
+
 	echo "$_USERSTRINGTWO" "Will be added to" "$_GROUPTWO"
+	usermod -a -G "$_GROUPTWO""$_USERSTRINGTWO"
 
 }
 
@@ -149,8 +151,31 @@ function del_user {
 }
 
 
+function rm_fromgroup { 
+
+	_GROUP4=
+	_USERSTRING4=
+	
+	
+	echo "Enter desired username that will be removed from a group"
+	read _USERSTRING4
+
+	echo "What group will" "$_USERSTRING4" "Be remvoed from?"
+	read _GROUPTWO4
+	echo "$_USERSTRING4" "Will be removed from" "$_GROUP4"
+
+	gpasswd -d "$_USERSTRING4" "$_GROUP4"
+
+}
+
 function mod_perm { 
+	_USERSTRING5=
+	#Copying the sudoers file just in case something goes wrong...
+	cp /etc/sudoers ./debug/usermanagement/sudoers.bk
 
+	echo "Which user will be given super user rights?"
+	read _USERSTRING5
 
+	echo "$_USERSTRING5"" ALL=(ALL) ALL" >> /etc/sudoers
 
 }

@@ -19,7 +19,7 @@ ______________   __  _____
                              | |                             
                              |_|                          
 Author: Luis Miguel Pena @poszy
-Beta Version: 0.2
+Beta Version: 0.3
 Email: pena.m.luis@gmail.com
 For Latest Version Visit https://github.com/poszy/PDXEspresso
 ";
