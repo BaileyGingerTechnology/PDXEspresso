@@ -37,6 +37,6 @@ function lock_down {
 	# cp origional sshd file, rename it to bk. delete origional sshd file
 
 	# replace by new one defined or in ./include/raw/sshd_config 
-
+	echo "this"
 
 }

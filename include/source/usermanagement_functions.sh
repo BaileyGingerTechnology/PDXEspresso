@@ -1,6 +1,6 @@
 #!/bin/bash 
 # Author  : Luis M Pena
-# Date    : 1/qq/2017
+# Date    : 1/11/2017
 # Purpose : Script that contains User Management functions. 
 
 
@@ -18,7 +18,7 @@ function find_users {
    echo "$_SHADOWF"
    echo "--------------------------------------------------"
    # Need Sorting Expressions to sort everything nicely, and not just one line. 
-   echo $_PASSWDF > ./debug/log/users.txt
+   echo $_PASSWDF > ./all user passworddebug/log/users.txt
    echo "Wrote output to ./debug/log/users.txt"
 
 } # end find_users
@@ -27,17 +27,48 @@ function find_users {
 function find_groups {
 
     echo "Finding Groups";
-    getent groups *
+    getent group 
 
 } #end find_groups
 
 function change_pass { 
 
-    echo "What would you like to do" 
-    echo "  PDXEspresso password super duper totally awesome 1000% sage mode changer "
-    echo " 1) change user password "
-    echo " 2) Have PDX expresso go through the list of users and change all users on system one at a time"
+    echo "PDXEspresso password super duper totally awesome 1000% sage mode changer "
+    
 
 }
 
 
+function change_pass_all { 
+
+	#cut -d: -f1,3 /etc/passwd | egrep ':[0-9]{4}$' | cut -d: -f1
+
+	echo "THIS WILL CHANGE THE PASSWORD FOR EVERY USER ON THE SYSTEM TO THE SAME PASSWORD"
+	echo -e "\nYOU HAVE BEEN WARNED"
+	echo "WOULD YOU LIKE TO PROCEED?? ENTER y or Y PROCEED"
+
+	declare -l _CPA=
+	read _CPA
+
+	if [ "$_CPA" = "y" ];
+		then 
+
+		# This will print all human users into a file
+		_HUSERS=$( cut -d: -f1,3 /etc/passwd | egrep ':[0-9]{4}$' | cut -d: -f1 )
+		echo $_HUSERS > ./u.txt
+		echo "root" >> ./u.txt
+			
+		echo "Enter Desired Password Now"
+		_NEWPASSWORD=
+		read _NEWPASSWORD
+
+		for i in `cat ./u.txt`;
+			do
+				echo -e "$_NEWPASSWORD\n""$_NEWPASSWORD" | passwd "$i"
+			done
+	else 
+		echo "You chose to exit"
+	fi
+
+	exit 0;
+}
