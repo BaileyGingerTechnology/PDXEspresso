@@ -4,8 +4,8 @@
 # Purpose : Script that manages the sshd service.
 
 # Include source files
-source ./include/source/general_functions.sh
-source ./include/source/sshd_functions.sh
+source ./include/src/general_functions.sh
+source ./include/src/sshd_functions.sh
 
 
 function main {

@@ -4,8 +4,8 @@
 # Purpose : Script that manages the apache service. 
 
 # Include source files
-source ./include/source/general_functions.sh
-source ./include/source/apache_functions.sh
+source ./include/src/general_functions.sh
+source ./include/src/apache_functions.sh
 function main {
 
     echo "This is the Apache Service manager";

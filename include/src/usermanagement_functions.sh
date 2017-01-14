@@ -34,7 +34,14 @@ function find_groups {
 function change_pass { 
 
     echo "PDXEspresso password super duper totally awesome 1000% sage mode changer "
-    
+    echo -e "\n"
+    echo "Enter the user password you would like to change"
+
+   _CP=
+   read _CP
+
+   echo "Now Changing Password ..."
+   passwd "$_CP"
 
 }
 
@@ -55,14 +62,14 @@ function change_pass_all {
 
 		# This will print all human users into a file
 		_HUSERS=$( cut -d: -f1,3 /etc/passwd | egrep ':[0-9]{4}$' | cut -d: -f1 )
-		echo $_HUSERS > ./u.txt
-		echo "root" >> ./u.txt
+		echo $_HUSERS > ./debug/usermanagement/userslist.txt
+		echo "root" >> ./debug/usermanagement/userslist.txt
 			
 		echo "Enter Desired Password Now"
 		_NEWPASSWORD=
 		read _NEWPASSWORD
 
-		for i in `cat ./u.txt`;
+		for i in `cat ./debug/usermanagement/userslist.txt`;
 			do
 				echo -e "$_NEWPASSWORD\n""$_NEWPASSWORD" | passwd "$i"
 			done

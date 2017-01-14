@@ -4,8 +4,8 @@
 # Purpose : Script that manages users and groups. 
 
 # Include source files
-source ./include/source/general_functions.sh
-source ./include/source/usermanagement_functions.sh   
+source ./include/src/general_functions.sh
+source ./include/src/usermanagement_functions.sh   
 
 
 function main {

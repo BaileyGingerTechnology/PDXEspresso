@@ -6,8 +6,8 @@
 # Script needs super user access. NO EXCEPTIONS.
 
 # Include Source Files
-source ./include/source/general_functions.sh
-source ./include/source/main_functions.sh
+source ./include/src/general_functions.sh
+source ./include/src/main_functions.sh
 
 echo "
 ______________   __  _____                                   

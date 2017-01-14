@@ -1,1 +1,0 @@
-root bin daemon adm lp sync shutdown halt news uucp operator portage nobody sshd man ldap messagebus mysql polkitd cron lu dhcp sddm mail postmaster nullmail apache hsqldb transmission pcscd

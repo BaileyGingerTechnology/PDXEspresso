@@ -4,8 +4,8 @@
 # Purpose : Script that manages the find functions
 
 # Include source files
-source ./include/source/general_functions.sh
-source ./include/source/find_functions.sh
+source ./include/src/general_functions.sh
+source ./include/src/find_functions.sh
 
 function main {
 

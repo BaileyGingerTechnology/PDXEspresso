@@ -4,7 +4,7 @@
 # Purpose : Script that manages the scan service.
 
 # Include source files
-source ./include/source/general_functions.sh
+source ./include/src/general_functions.sh
 #source ./include/source/
 
 function main {

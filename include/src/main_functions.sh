@@ -43,9 +43,39 @@ else
     touch ./debug/sshd/sshd.txt
     touch ./debug/sshd/sshd.log
     
+
+    # Usermanagement 
+    mkdir ./debug/usermanagement
+    touch ./debug/usermanagement/userslist.txt
+
     chmod -R 777 ./debug
+
+    
 fi
 
+}
+
+
+function clear_debug { 
+
+
+if [ -d "./debug" ];
+
+then
+    echo " Directories  exist!.... "
+    echo " Now deleting ...."
+    
+    rm -R ./debug
+    
+    echo "Done..."
+    
+else
+    echo " Directories do not exist, nothing to delete ..."
+    #Main Debug Folder
+    
+fi
+
+    
 }
 
 function stop_service { 
@@ -229,27 +259,6 @@ function tail_auth {
     tail -f /var/log/auth.log
 }
 
-function clear_debug { 
-
-
-if [ -d "./debug" ];
-
-then
-    echo " Directories  exist!.... "
-    echo " Now deleting ...."
-    
-    rm -R ./debug
-
-    echo "Done..."
-    
-else
-    echo " Directories do not exist, nothing to delete ..."
-    #Main Debug Folder
-    
-fi
-
-    
-}
 
 function find_services {
 

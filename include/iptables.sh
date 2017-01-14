@@ -6,8 +6,8 @@
 # Makes it easier for me to manage and read these scripts.
 
 # Include source files
-source ./include/source/general_functions.sh
-source ./include/source/iptables_functions.sh    
+source ./include/src/general_functions.sh
+source ./include/src/iptables_functions.sh    
 
 # Setting Global Variables to make things easier and faster
 # I Really dont care about conventional coding when it comes to shell scripting
