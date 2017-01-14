@@ -35,8 +35,12 @@ case $_UMCHOICE in
     2) find_groups; press_enter ;;
     3) change_pass ; press_enter ;;
    	4) change_pass_all ; press_enter ;;
-
-
+    5) user_add ; press_enter ;;
+    6) add_togroup; press_enter;;
+    7) del_user; press_enter;;
+    8) rm_fromgroup; press_enter;;
+    9) mod_perm; press_enter;;
+    
     0) exit ;;
     *) echo "Enter a digit above and try not to break this program.";
 

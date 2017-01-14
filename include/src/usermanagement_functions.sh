@@ -79,3 +79,78 @@ function change_pass_all {
 
 	exit 0;
 }
+
+
+function user_add { 
+
+	# universal way of adding a new user
+	# some distros dont have the good adduser, that gives them a home directory and puts them in groups
+
+	_GROUP=
+	_USERSTRING=
+	declare -l _HCHOICE=
+	echo "adding a new user"
+	echo "Enter desired username now"
+	read _USERSTRING
+
+	echo "What group will" "$_USERSTRING" "Be In?"
+	read _GROUP
+	echo "$_USERSTRING" "Will be in group" "$_GROUP"
+
+	echo "Does this user need a home directory? Y or N "
+	read _HCHOICE
+
+	if [ "$_HCHOICE" = "y" ];
+		then
+		echo "Now Creating" "$_USERSTRING" " With a Home Directory "
+		useradd -m -G "$_GROUP" -s /bin/bash "$_USERSTRING"
+
+	elif [ "$_HCHOICE" = "n" ];
+		then
+		echo "Now Creating" "$_USERSTRING" " Without a Home Directory "
+		useradd -G "$_GROUP" -s /bin/bash "$_USERSTRING"
+
+	fi
+	
+	passwd $_USERSTRING
+
+}
+
+function add_togroup { 
+
+	_GROUPTWO=
+	_USERSTRINGTWO=
+	
+	
+	echo "Enter desired username that will be added to a new group"
+	read _USERSTRINGTWO
+
+	echo "What group will" "$_USERSTRINGTWO" "Be In?"
+	read _GROUPTWO
+	echo "$_USERSTRINGTWO" "Will be added to" "$_GROUPTWO"
+
+}
+
+
+function del_user { 
+
+	_GROUP3=
+	_USERSTRING3=
+	
+	
+	echo "Which User shall be deleted?"
+	read _USERSTRING3
+
+	
+	echo "$_USERSTRING3" "Will be deleted"
+
+	userdel -rf $_USERSTRING3
+
+}
+
+
+function mod_perm { 
+
+
+
+}
