@@ -169,6 +169,7 @@ function rm_fromgroup {
 }
 
 function mod_perm { 
+
 	_USERSTRING5=
 	#Copying the sudoers file just in case something goes wrong...
 	cp /etc/sudoers ./debug/usermanagement/sudoers.bk

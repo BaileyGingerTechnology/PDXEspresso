@@ -88,21 +88,22 @@ function stop_service {
     _INIT=0
 
    
-    if [ -d /etc/init.d/ ] ; # Start Main If Statement
+  if [ -d /etc/init.d/ ] ; # Start Main If Statement
+    
     then
-	 _OPENRC=1
-	 _FINAL=$_OPENRC
+	  
+     _OPENRC=1
+	   _FINAL=$_OPENRC
 
-
-	echo "This system has OpenRC, This host can use service or the traditional /etc/init.d/SERVICE start|stop|restart"
-	
-	echo $_FINAL
+	     echo "This system has OpenRC, This host can use service or the traditional /etc/init.d/SERVICE start|stop|restart"
+	     echo $_FINAL
 	
 	if [ $_FINAL=1 ] ;
-	    then 
-	     echo "Using OPENRC for sure"
-	     echo $_FINAL
+	 
+   then 
 	     
+       echo "Using OPENRC for sure"
+	     echo $_FINAL
 	     
 	     echo "Type in the service you would like to stop"
 	     _SER=
@@ -116,17 +117,24 @@ function stop_service {
 	     echo $( service $_SER $_SSR );
 
 
-	    else echo "logic error"
-	fi # end first inner IF statement
+  else 
+
+    echo "logic error"
+	
+  fi # end first inner IF statement
        
    else 
 	_SYSTEMD=2
 	 _FINAL2=$_SYSTEMD
 	echo "SystemD has been found"
 	##
-	if [ $_FINAL2=2 ] ;
-	    then echo "Using SYSTEMD for sure"
-	    else echo "logic error";
+	if [ "$_FINAL2"=2 ] ;
+	    
+      then 
+        echo "Using SYSTEMD for sure"
+	    
+      else 
+        echo "logic error";
 	fi # end second inner IF statementif 
 	##
 
@@ -236,8 +244,8 @@ function find_package {
     echo " Type in a query to have PDXEspresso find a package "
     echo " 1) Search entire / "
     echo " 2) Search /etc "
-}
 
+}
 
 function find_distro { 
     
@@ -257,12 +265,14 @@ function find_distro {
 function tail_auth { 
 
     tail -f /var/log/auth.log
+
 }
 
 
 function find_services {
 
     echo "Now Finding Services";
+
 
 } # end find_services
 
@@ -276,9 +286,13 @@ function dir_bkrestore {
     echo "2) Restore Config(s) or Dir(s)"
 
 
+
     echo "1) Backup /etc" 
     echo "2) Backup /var/www/httpd or /var/www/html "
     echo "3) Backup /var/log  "
+    echo "4) Backup Everything"
+
+
 
 
 }

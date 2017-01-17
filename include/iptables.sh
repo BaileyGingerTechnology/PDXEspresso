@@ -29,8 +29,36 @@ source ./include/src/iptables_functions.sh
 
 function main {
 
-    echo "Main Function";
-    ip_tables
+    _IPCHOICE= 
+    echo "How Would you like to manage IP tables?";
+
+    echo "1) Display IP Tables";
+    echo "2) Flush IP Tables";
+    echo "3) Add new Port to LISTEN";
+    echo "4) Block new port";
+    echo "5) NUKE POLICY & CHAIN & RULES";
+    echo "6) Restore firewall from file";
+    echo "7) Remove IPtables & configuration files";
+    echo "8) Install iptables";
+
+    read _IPCHOICE
+
+case $_IPCHOICE in
+
+    1) echo "$_IPDISPLAY"; press_enter ;;
+    2) echo "$_IPFLUSH" ; press_enter ;;
+    3) add_port ; press_enter ;;
+    4) remove_port ; press_enter ;;
+    5) nuke_tables ; press_enter ;;
+    6) restore_tables ; press_enter ;;
+    7) echo "$_IPREMOVE" ; press_enter ;;
+    8) echo "$_IPINSTALL" ; press_enter ;;
+
+    0) exit ;;
+    *) echo "Enter a digit above and try not to break this program.";
+
+      esac
+
 
 }
 
