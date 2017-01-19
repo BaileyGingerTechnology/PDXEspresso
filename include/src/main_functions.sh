@@ -286,9 +286,6 @@ function dir_bkrestore {
     echo "3) Backup /var/log  "
     echo "4) Backup Everything"
 
-
-
-
 }
 
 
@@ -301,9 +298,9 @@ function find_log {
     echo " Find logs now";
 }
 
-######################################
-## Functions that call another scripts
-######################################
+###########################################
+## Functions That Call Interface Scripts ##
+###########################################
 
 function init_sshd {
     #Simple function that launches sshd script
