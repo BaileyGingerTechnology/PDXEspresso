@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 # Author  : Luis M Pena
 # Date    : 12/15/2016
 # Purpose : Main script for various system administration scripts.
@@ -8,16 +8,16 @@
 # Include Source Files
 source ./include/src/general_functions.sh
 source ./include/src/main_functions.sh
-
+source ./include/package_manager.sh
 echo "
-______________   __  _____                                   
-| ___ \  _  \ \ / / |  ___|                                  
-| |_/ / | | |\ V /  | |__ ___ _ __  _ __ ___  ___ ___  ___   
-|  __/| | | |/   \  |  __/ __| '_ \| '__/ _ \/ __/ __|/ _ \  
-| |   | |/ // /^\ \ | |__\__ \ |_) | | |  __/\__ \__ \ (_) | 
-\_|   |___/ \/   \/ \____/___/ .__/|_|  \___||___/___/\___/  
-                             | |                             
-                             |_|                          
+______________   __  _____
+| ___ \  _  \ \ / / |  ___|
+| |_/ / | | |\ V /  | |__ ___ _ __  _ __ ___  ___ ___  ___
+|  __/| | | |/   \  |  __/ __| '_ \| '__/ _ \/ __/ __|/ _ \
+| |   | |/ // /^\ \ | |__\__ \ |_) | | |  __/\__ \__ \ (_) |
+\_|   |___/ \/   \/ \____/___/ .__/|_|  \___||___/___/\___/
+                             | |
+                             |_|
 Author: Luis Miguel Pena @poszy
 Beta Version: 0.3
 Email: pena.m.luis@gmail.com
