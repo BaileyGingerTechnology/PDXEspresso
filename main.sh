@@ -50,7 +50,7 @@ echo "5)  SSH Management";
 echo "6)  Apache Management";
 echo "7)  IP Tables Management";
 echo "8)  Package Management";
-echo "9)  Install Third Party Software (Splunk)";
+echo "9)  Install Third Party Software (Splunk,OSSEC)";
 echo "10) Tail Auth log";
 echo "11) clear all debug logs and clear all temp files";
 echo "12) Find/Stop Services ";
@@ -67,7 +67,7 @@ case $INPUT in
     6) init_apache ; press_enter ;;
     7) init_tables ; press_enter ;;
     8) init_package ; press_enter ;;
-    9) find_distro ; press_enter ;;
+    9) init_third ; press_enter ;;
     10) tail_auth ; press_enter ;;
     11) clear_debug ; press_enter ;;
     12) stop_service ; press_enter ;;

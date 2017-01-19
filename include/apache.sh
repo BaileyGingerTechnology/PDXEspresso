@@ -9,7 +9,7 @@ source ./include/src/apache_functions.sh
 function main {
 
     echo "This is the Apache Service manager";
-    $_PACKAGE
+    
 
 }
 

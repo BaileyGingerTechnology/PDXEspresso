@@ -291,6 +291,10 @@ function dir_bkrestore {
 
 }
 
+
+
+
+
 function find_log { 
 
     #search and find log files
@@ -312,20 +316,26 @@ function init_tables {
 }
 
 function init_apache {
-    #Simple function that launches Iptables script
+    #Simple function that launches Apache script
     bash ./include/apache.sh
 } 
 
 function init_findfiles { 
-  #Simple function that launches Iptables script
+  #Simple function that launches search script
    bash ./include/searchfind.sh
 }
 
 function init_userman { 
-  #Simple function that launches Iptables script
+  #Simple function that launches usermanagement script
    bash ./include/user_management.sh
 }
 
 function init_package { 
+  #Simple function that launches packagemanager script
     bash ./include/package_manager.sh
+}
+
+function init_third {
+  #Simple function that launches third party software script
+   bash ./include/third.sh
 }

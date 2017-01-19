@@ -37,7 +37,7 @@ function eme_remove {
 	_EMEREMOVE=
 	read _EMEREMOVE
 
-	echo "Now remove ..."
+	echo "Now removing"
 	emerge --unmerge "$_EMEREMOVE"
 }
 
@@ -46,4 +46,11 @@ function eme_sync {
 	echo "Syncing mirrors with latest updates..."
 	emerge --sync 
 
+}
+
+
+function eme_splunk { 
+
+	echo "Installing Splunk"
+	
 }

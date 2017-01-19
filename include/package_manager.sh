@@ -113,7 +113,8 @@ function install_eme {
     echo "2) Install A Package ";
     echo "3) Remove A Package";
   	echo "4) Sync Repos With Latest Screenshot";
-  	
+  	echo "5) Install Splunk and Splunk Forwarder"
+  	echo "6) Install OSSEC"
 
 
 
