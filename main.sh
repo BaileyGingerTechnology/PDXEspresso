@@ -6,9 +6,11 @@
 # Script needs super user access. NO EXCEPTIONS.
 
 # Include Source Files
+
 source ./include/src/general_functions.sh
 source ./include/src/main_functions.sh
-source ./include/package_manager.sh
+
+
 echo "
 ______________   __  _____
 | ___ \  _  \ \ / / |  ___|
@@ -18,17 +20,21 @@ ______________   __  _____
 \_|   |___/ \/   \/ \____/___/ .__/|_|  \___||___/___/\___/
                              | |
                              |_|
+
 Author: Luis Miguel Pena @poszy
-Beta Version: 0.3
+Beta Version: 0.5
 Email: pena.m.luis@gmail.com
 For Latest Version Visit https://github.com/poszy/PDXEspresso
 ";
 
 function main {
 
-#Run create_dirs function
+#Run start functions
 check_root
 create_dirs
+
+
+echo -e "\n"
 
 INPUT=
 
@@ -60,7 +66,7 @@ case $INPUT in
     5) init_sshd ; press_enter ;;
     6) init_apache ; press_enter ;;
     7) init_tables ; press_enter ;;
-    8) find_package ; press_enter ;;
+    8) init_package ; press_enter ;;
     9) find_distro ; press_enter ;;
     10) tail_auth ; press_enter ;;
     11) clear_debug ; press_enter ;;

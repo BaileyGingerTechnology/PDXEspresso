@@ -239,13 +239,7 @@ function find_cpui {
     
 }
 
-function find_package { 
-    
-    echo " Type in a query to have PDXEspresso find a package "
-    echo " 1) Search entire / "
-    echo " 2) Search /etc "
 
-}
 
 function find_distro { 
     
@@ -330,4 +324,8 @@ function init_findfiles {
 function init_userman { 
   #Simple function that launches Iptables script
    bash ./include/user_management.sh
+}
+
+function init_package { 
+    bash ./include/package_manager.sh
 }

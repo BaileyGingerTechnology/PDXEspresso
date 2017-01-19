@@ -123,3 +123,8 @@ I plan to optimize the search functions once I have completed the script.
 
 # January 14th 2017
 Version 0.3 . User Management interface is done. 
+
+# January 19th 2017
+Version 0.5 Started package management interface. Also test on redhat, everything works fine. 
+Seems like the exporting of global variables for the package manager function is working correctly. However I dont really under stand why.
+It seems global variables in bash are exported to the enviroment. which makes it handy to not having to keep importing different variables. 
