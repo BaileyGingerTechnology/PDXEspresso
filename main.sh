@@ -44,7 +44,7 @@ echo "What would you like to do?";
 
 echo "1)  Searh Ports";
 echo "2)  User & Group Management"; #Check Loged in users
-echo "3)  Search For config Files";
+echo "3)  Search For Config Files & Services";
 echo "4)  Display CPU Info";
 echo "5)  SSH Management";
 echo "6)  Apache Management";
@@ -54,6 +54,7 @@ echo "9)  Install Third Party Software (Splunk,OSSEC)";
 echo "10) Tail Auth log";
 echo "11) clear all debug logs and clear all temp files";
 echo "12) Find/Stop Services ";
+echo "13) Hash Entire System with Tripwire";
 
 read INPUT
 
@@ -71,6 +72,7 @@ case $INPUT in
     10) tail_auth ; press_enter ;;
     11) clear_debug ; press_enter ;;
     12) stop_service ; press_enter ;;
+
 
     0) exit ;;
     *) echo "Enter a digit above and try not to break this program.";

@@ -6,9 +6,6 @@
 
 source ./include/src/general_functions.sh
 
-
-
-
 function determine_manager {
 
   _YUM=$( which yum )
@@ -54,10 +51,8 @@ function determine_manager {
 
   fi
 
-
-
 }
-
+#end determine_manager
 
 function package_install {
 	determine_manager
@@ -74,9 +69,8 @@ function package_install {
 
 
       esac
-
-
 }
+# end package install
 
 function install_yum {
 
@@ -94,8 +88,6 @@ function install_yum {
     echo "6) Remove Local RPM"
     echo "7) Install Developement Tools (GCC, other compilers and build tools)";
     echo "8) Install Only Security Updates";
-
-
 
   read _YUMCHOICE
 
@@ -115,22 +107,91 @@ function install_yum {
 
         esac
 }
-
+#end yum
 
 function install_apt {
 
 	echo "Using APT"
-	source ./include/src/pkg/apt_functions.sh
+  source ./include/src/pkg/apt_functions.sh
+
+    _APTCHOICE=
+    echo -e "\n "
+    echo " APT Package Manager Interface";
+
+    echo "1) Update Every Package ";
+    echo "2) Install A Package ";
+    echo "3) Remove A Package";
+    echo "4) Sync Repos";
+    echo "5) Install Local DPKG";
+    echo "6) Remove Local DPKG"
+    echo "7) Install Developement Tools (GCC, other compilers and build tools)";
+    echo "8) Attempt to Distro Hop (WARNING)";
+    echo "9) Use DPKG to find Installed Packages"
+
+
+  read _APTCHOICE
+
+  case $_APTCHOICE in
+
+      1) apt_all; press_enter ;;
+      2) apt_install; press_enter ;;
+      3) apt_remove ; press_enter ;;
+      4) apt_sync ; press_enter ;;
+      5) apt_local; press_enter;;
+      6) apt_rmlocal; press_enter;;
+      7) apt_devel; press_enter;;
+      8) apt_hop; press_enter;;
+      9) apt_searchinstalled; press_enter;;
+
+      0) exit ;;
+      *) echo "Enter a digit above and try not to break this program.";
+
+        esac
 }
-
-
+#end APT
 
 function install_pac {
 
-	echo "Using pac"
 	source ./include/src/pkg/pac_functions.sh
-}
 
+  _PACMANCHOICE=
+
+  echo -e "\n "
+
+  echo "PACMAN Interface";
+  echo "1) Update Every Package ";
+  echo "2) Install A Package ";
+  echo "3) Remove A Package";
+  echo "4) Sync Repos";
+  echo "5) Install Local TARBALL FROM AUR (RUN 7 First)";
+  echo "6) Remove Local Package from AUR";
+  echo "7) Install PACMAN Developement Tools (GCC, other compilers and build tools)";
+  echo "8) Search for installed Package"
+  echo "9) Install Splunk and Splunk Forwarder from the AUR";
+  echo "10) Run Splunk";
+
+read _APTCHOICE
+
+case $_APTCHOICE in
+
+    1) pac_all; press_enter ;;
+    2) pac_install; press_enter ;;
+    3) pac_remove ; press_enter ;;
+    4) pac_sync ; press_enter ;;
+    5) pac_local; press_enter;;
+    6) pac_rmlocal; press_enter;;
+    7) pac_devel; press_enter;;
+    8) pac_searchinstalled; press_enter;;
+    9) pac_splunk; press_enter;;
+    10) splunk_run; press_enter;;
+
+    0) exit ;;
+    *) echo "Enter a digit above and try not to break this program.";
+
+      esac
+
+}
+#End pacman
 
 function install_eme {
 
@@ -139,16 +200,12 @@ function install_eme {
 	EMECHOICE=
 	echo "Using EMERGE"
     echo "Gentoo's Package Manager Interface";
-
-
     echo "1) Update Every Package ";
     echo "2) Install A Package ";
     echo "3) Remove A Package";
   	echo "4) Sync Repos With Latest Screenshot";
   	echo "5) Install Splunk and Splunk Forwarder"
   	echo "6) Install OSSEC"
-
-
 
     read _EMECHOICE
 
@@ -159,17 +216,13 @@ case $_EMECHOICE in
     3) eme_remove ; press_enter ;;
    	4) eme_sync ; press_enter ;;
 
-
     0) exit ;;
     *) echo "Enter a digit above and try not to break this program.";
 
       esac
-
-
 }
 
 function main {
-
 
 	package_install
 
