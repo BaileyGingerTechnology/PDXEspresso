@@ -62,56 +62,65 @@ function pac_searchinstalled {
 
 }
 
+
+function pac_user { 
+
+ useradd splunk
+
+}
+
 function pac_splunk {
+  
+  # Temp User needed to compile AUR Packages
+  echo "Type In Temp user on system to compile Splunk From AUR"
+  echo "USER SPLUNK SHOULD ALREADY EXIST"
 
-	echo "Installing Splunk"
-  curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/splunk.tar.gz /opt/splunk.tar.gz
-  tar -xvf /opt/splunk.tar.gz
+  _TEMPU=
+  read _TEMPU
+ 
+  su - "$_TEMPU" -c " curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/splunk.tar.gz; 
+  pwd; tar -xvf splunk.tar.gz; 
+  pwd; cd ./splunk; 
+  pwd; 
+  makepkg -si; 
+  pwd;"
+  pwd
+  echo "this"
+  cd /home/"$_TEMPU"/
+  pwd
+  pacman -U /home/"$_TEMPU"/splunk/splunk-6.5.1_f74036626f0c-1-x86_64.pkg.tar
+  
+  su - root -c "chown -R splunk:splunk /opt/splunk"
 
-  cd /opt/splunk && makepkg -si
-  echo "Done Compiling Splunk ...  "
-  echo -e "\n"
+  su - splunk -c "/opt/splunk/bin/./splunk start --accept-license"
+  su - splunk -c "/opt/splunk/bin/./splunk enable boot-start -user splunk"
+	
+}
 
-  echo "Now Installing the Splunk Forwarder"
-  curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/splunkforwarder.tar.gz /opt/splunkforwarder.tar.gz
-  tar -xvf /opt/splunkforwarder.tar.gz
+function pac_run {
+  
+  su - splunk -c  " /opt/splunk/bin/splunk start"
 
-  cd /opt/splunkforwarder && makepkg -si
-  echo "Done Compiling Splunk Forwarder"
-  echo -e "\n"
+}
+
+function pac_forwarder { 
 
   echo "Now Configuring Splunk"
+  
+ 
+  echo "Now Installing the splunk forwarder to /opt/splunkforwarder"
 
-  echo "Adding Splunk User"
-  #Add splunk user
-  useradd splunk
-  echo "Done!..."
-  echo -e "\n"
-
-  echo "Chaning Ownership of splunk directory"
-  #Change ownership of splunk directory
-  chown -R splunk:splunk $SPLUNK_HOME
-  echo "Done!..."
-  echo -e "\n"
-
-  #Change user to splunk
-  echo "Changing to Splunk User and Accepting Licence"
-
-  su splunk
-  /opt/splunk/bin start --accept-license
-  /opt/splunk/bin enable boot-start -user splunk
-
-  echo "Done!..."
-  echo -e "\n"
+  su - "$_TEMPU" -c " curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/splunkforwarder.tar.gz;
+  tar -xvf ./splunkforwarder.tar.gz; 
+  cd splunkforwarder;
+  makepkg -si; "
+  pacman -U /home/"$_TEMPU"/splunkforwarder/splunkforwarder-6.5.1_f74036626f0c-1-x86_64.pkg.tar
 
 
 }
 
-function splunk_run {
-  su splunk
-  cd /opt/splunk/bin start
 
-}
+
 
 function pac_nagios {
 

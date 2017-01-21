@@ -167,9 +167,10 @@ function install_pac {
   echo "6) Remove Local Package from AUR";
   echo "7) Install PACMAN Developement Tools (GCC, other compilers and build tools)";
   echo "8) Search for installed Package"
-  echo "9) Install Splunk and Splunk Forwarder from the AUR";
-  echo "10) Run Splunk";
-
+  echo "9) Create Splunk User ( Must be Ran First, in order to start splunk" 
+  echo "10) Install Splunk and Splunk Forwarder from the AUR";
+  echo "11) Run Splunk";
+  echo "12) Install Splunk Universal Forwarder";
 read _APTCHOICE
 
 case $_APTCHOICE in
@@ -182,8 +183,10 @@ case $_APTCHOICE in
     6) pac_rmlocal; press_enter;;
     7) pac_devel; press_enter;;
     8) pac_searchinstalled; press_enter;;
-    9) pac_splunk; press_enter;;
-    10) splunk_run; press_enter;;
+    9) pac_user; press_enter;;
+    10) pac_splunk; press_enter;;
+    11) pac_run; press_enter;;
+    12) pac_forwarder; press_enter;;
 
     0) exit ;;
     *) echo "Enter a digit above and try not to break this program.";
