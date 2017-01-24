@@ -36,6 +36,20 @@ fi
 function  splunk_forwarder {
 
 	echo "Installing forwarder"
+  echo "USER SPLUNK SHOULD ALREADY EXIST"
+
+	# Testing on Redhat 7
+
+	# I have to extract and then copy the folder because some distros do not have the -C commmand
+  tar -xzvf ./include/raw/release/splunkforwarder5_64.tgz
+	cp -Rp ./splunkforwarder /opt/splunkforwarder
+
+  chown -R splunk:splunk /opt/splunkforwarder
+
+
+  /opt/splunkforwarder/bin/./splunk start --accept-license
+  /opt/splunkforwarder/bin/./splunk enable boot-start -user splunk
+
 
 }
 
@@ -46,7 +60,16 @@ function splunk_run {
 
 function splunk_run2 {
 
-	su - splunk -c " /opt/splunkforwarder/bin splunk start"
+
+
+	su - splunk -c "
+	/opt/splunkforwarder/bin/./splunk add forward-server
+
+	./splunk add monitor /var/log
+
+	./splunk restart
+
+	"
 
 }
 
@@ -73,6 +96,6 @@ function tripwire_install {
 function nagios_install {
 
 	echo "This Will install nagios"
-
+ xsaxsa
 
 }
