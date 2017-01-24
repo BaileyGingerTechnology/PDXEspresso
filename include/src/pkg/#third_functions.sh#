@@ -45,7 +45,7 @@ function  splunk_forwarder {
   cp -Rp ./splunkforwarder /opt/splunkforwarder
 
   chown -R splunk:splunk /opt/splunkforwarder
-  chmod -R 755 /opt/splunkforwarder
+
 
   /opt/splunkforwarder/bin/./splunk start --accept-license
   /opt/splunkforwarder/bin/./splunk enable boot-start -user splunk
@@ -60,21 +60,16 @@ function splunk_run {
 
 function splunk_run2 {
 
-	echo "First Type in full Host name of Splunk central server (example 192.168.0.1 OR domain.site2.whatever) "
-	_SHOST=
-	read _SHOST
-	echo "Now Type in Port Number of Splunk cetnral server"
-	_SPORT=
-	read _SPORT
 
 
-	su - splunk -c " whoami; 
-	cd /opt/splunkforwarder/bin; 
-	./splunk add forward-server $_SHOST:$_SPORT;
+	su - splunk -c "
+	/opt/splunkforwarder/bin/./splunk add forward-server
 
-	./splunk add monitor /var/log;
-	./splunk restart;
-	whoami "
+	./splunk add monitor /var/log
+
+	./splunk restart
+
+	"
 
 }
 
