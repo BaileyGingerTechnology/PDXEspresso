@@ -65,3 +65,33 @@ function yum_sec {
 
 
 }
+
+function yum_ossec {
+
+  echo "What would you like to do?"
+  echo "NOTE: Development Tools must be installed"
+
+  echo " 1) Install OSSEC Server"
+  echo " 2) Install OSSEC Agent "
+
+  _OCHOICE=
+  read _OCHOICE
+
+if ["$_OCHOICE" = 1]; 
+  then
+    echo "Installing OSSEC Server"
+    wget -q -O – https://www.atomicorp.com/installers/atomic | sh
+    yum install ossec-hids ossec-hids-server 
+
+elif ["$_OCHOICE" =2 ]
+  then
+    echo "Installing OSSEC Agent"
+    wget -q -O – https://www.atomicorp.com/installers/atomic | sh
+    yum install ossec-hids ossec-hids-client 
+
+else 
+  echo "Nothing was selected.. Now exiting"
+  exit 0;
+fi
+
+}

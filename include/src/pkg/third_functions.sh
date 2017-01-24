@@ -68,6 +68,8 @@ function splunk_run2 {
 	read _SPORT
 
 
+
+
 	su - splunk -c " whoami; 
 	cd /opt/splunkforwarder/bin; 
 	./splunk add forward-server $_SHOST:$_SPORT;

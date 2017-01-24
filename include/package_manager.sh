@@ -88,7 +88,7 @@ function install_yum {
     echo "6) Remove Local RPM"
     echo "7) Install Developement Tools (GCC, other compilers and build tools)";
     echo "8) Install Only Security Updates";
-
+    echo "9) Install OSSEC Server or AGENT"
   read _YUMCHOICE
 
   case $_YUMCHOICE in
@@ -101,6 +101,7 @@ function install_yum {
       6) yum_rmlocal; press_enter;;
       7) yum_devel; press_enter;;
       8) yum_sec; press_enter;;
+      9) yum_ossec; press_enter;;
 
       0) exit ;;
       *) echo "Enter a digit above and try not to break this program.";
