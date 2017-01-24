@@ -1,0 +1,1 @@
+root bin daemon adm lp sync shutdown halt mail operator games ftp nobody avahi-autoipd systemd-bus-proxy systemd-network dbus polkitd colord tss unbound usbmuxd saslauth libstoragemgmt geoclue abrt rpc setroubleshoot rtkit pulse gdm chrony rpcuser nfsnobody radvd qemu mysql gnome-initial-setup avahi postfix sshd ntp tcpdump lu user passworddebug/log/users.txt

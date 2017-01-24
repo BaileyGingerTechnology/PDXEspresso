@@ -33,25 +33,46 @@ fi
 
 }
 
+function  splunk_forwarder {
+
+	echo "Installing forwarder"
+
+}
+
 function splunk_run {
 
-	su splunk
-	/opt/splunk/bin start
+	su - splunk -c "/opt/splunk/bin start"
+}
+
+function splunk_run2 {
+
+	su - splunk -c " /opt/splunkforwarder/bin splunk start"
+
 }
 
 
-function splunk_echo {
-
-	echo "testing..."
-}
-
-function nagios {
-
-	echo "This Will install nagios"
-}
-
-function ossec {
+function ossec_install {
 
 	echo "Installing ossec"
+
+}
+
+function snort_install {
+
+	echo "Installing SNORT"
+
+}
+
+function tripwire_install {
+
+	echo "Installing tripwire"
+
+}
+
+
+function nagios_install {
+
+	echo "This Will install nagios"
+
 
 }
