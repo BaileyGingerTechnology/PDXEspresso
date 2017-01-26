@@ -7,55 +7,48 @@
 function splunk_install {
 
 
-if [ -d /opt/splunk];
-	then
-		echo "Splunk Already exist! Just run it with option #2"
+echo "Installing forwarder"
+echo "USER SPLUNK SHOULD ALREADY EXIST"
 
-	else
+# Testing on Redhat 7
+# I have to extract and then copy the folder because some distros do not have the -C commmand
+
+tar -xzvf ./include/raw/release/splunk6_64.tgz
+cp -Rp ./splunk /opt/splunk
+
+chown -R splunk:splunk /opt/splunk
+chmod -R 755 /opt/splunk
+
+/opt/splunk/bin/./splunk start --accept-license
+/opt/splunk/bin/./splunk enable boot-start -user splunk
 
 
-    #Add splunk user
-    useradd splunk
-
-    #install splunk as root
-    # Find Splunk located in ./include/raw/splunk.tgz
-    tar xvzf  ./include/raw/splunk.tgz -C /opt
-
-    #Change ownership of splunk directory
-    chown -R splunk:splunk $SPLUNK_HOME
-
-    #Change user to splunk
-    su splunk
-    /opt/splunk/bin start --accept-license
-    /opt/splunk/bin enable boot-start -user splunk
-
-fi
 
 }
 
 function  splunk_forwarder {
 
-	echo "Installing forwarder"
-  echo "USER SPLUNK SHOULD ALREADY EXIST"
+echo "Installing forwarder"
+echo "USER SPLUNK SHOULD ALREADY EXIST"
 
 	# Testing on Redhat 7
 
 	# I have to extract and then copy the folder because some distros do not have the -C commmand
-  tar -xzvf ./include/raw/release/splunkforwarder5_64.tgz
-  cp -Rp ./splunkforwarder /opt/splunkforwarder
+tar -xzvf ./include/raw/release/splunkforwarder5_64.tgz
+cp -Rp ./splunkforwarder /opt/splunkforwarder
 
-  chown -R splunk:splunk /opt/splunkforwarder
-  chmod -R 755 /opt/splunkforwarder
+chown -R splunk:splunk /opt/splunkforwarder
+chmod -R 755 /opt/splunkforwarder
 
-  /opt/splunkforwarder/bin/./splunk start --accept-license
-  /opt/splunkforwarder/bin/./splunk enable boot-start -user splunk
+/opt/splunkforwarder/bin/./splunk start --accept-license
+/opt/splunkforwarder/bin/./splunk enable boot-start -user splunk
 
 
 }
 
 function splunk_run {
 
-	su - splunk -c "/opt/splunk/bin start"
+	su - splunk -c "/opt/splunk/bin/./splunk start"
 }
 
 function splunk_run2 {
