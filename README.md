@@ -130,9 +130,9 @@ Seems like the exporting of global variables for the package manager function is
 It seems global variables in bash are exported to the enviroment. which makes it handy to not having to keep importing different variables. 
 
 # January 26th 2017
-Version 0.7 . The splunk and splunk forwarder have been tested and confirmed working on Gentoo and Redhat. T
-There is wierd permission issue when splunk gets extracted and moved to /opt , So I had to change the 
-permissions of the /opt/splunk & /opt/splunkforwarder to only allow the splunk user to run the services.
+Version 0.7 . The splunk and splunk forwarder have been tested and confirmed working on Gentoo and Redhat.
+There is a wierd permission issue when splunk gets extracted and moved to /opt , So I had to change 
+the permissions of /opt/splunk & /opt/splunkforwarder to only allow the splunk user to run the services.
 HOWEVER that causes a permission denied bug whenever the splunk forwarder is ran with the splunk user.
 I have no idea what is causing this but it does not affect the functionality of the splunk server nor the 
-splunk forwarder. 
+splunk forwarder. At least to my knowledge

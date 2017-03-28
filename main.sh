@@ -30,6 +30,7 @@ For Latest Version Visit https://github.com/poszy/PDXEspresso
 function main {
 
 #Run start functions
+check_distro
 check_root
 create_dirs
 
@@ -47,7 +48,7 @@ echo "2)  User & Group Management"; #Check Loged in users
 echo "3)  Search For Config Files & Services";
 echo "4)  Display CPU Info";
 echo "5)  SSH Management";
-echo "6)  Apache Management";
+echo "6)  Web Server Management";
 echo "7)  IP Tables Management";
 echo "8)  Package Management";
 echo "9)  Install Third Party Software (Splunk,OSSEC)";
@@ -65,7 +66,7 @@ case $INPUT in
     3) init_findfiles ; press_enter ;;
     4) find_cpui ; press_enter ;;
     5) init_sshd ; press_enter ;;
-    6) init_apache ; press_enter ;;
+    6) init_webserver ; press_enter ;;
     7) init_tables ; press_enter ;;
     8) init_package ; press_enter ;;
     9) init_third ; press_enter ;;

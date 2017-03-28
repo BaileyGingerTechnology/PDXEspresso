@@ -84,6 +84,38 @@ function snort_install {
 
 	echo "Installing SNORT"
 
+	echo " ERROR!  Libpcap library version >= 1.0.0 not found.
+    Get it from http://www.tcpdump.org
+    Gentoo:emerge --ask net-analyzer/tcpdump dev-libs/libdnet
+    "
+
+
+
+	wget https://www.snort.org/downloads/snort/daq-2.0.6.tar.gz 
+	tar -xzvf daq-2.0.6.tar.gz 
+	cd ./daq-2.0.6
+	
+	./configure 
+	make
+	make install
+
+
+	wget https://www.snort.org/downloads/snort/snort-2.9.9.0.tar.gz
+	tar xvfz snort-2.9.9.0.tar.gz
+                    
+	cd snort-2.9.9.0
+	./configure --enable-sourcefire 
+	 make
+	 make install
+
+
+	#In order for normal users to run tcpdump the program should be built with the suid flag enabled and the user(s) should be added to the tcpdump group.
+
+	#root #USE="suid" emerge -a --changed-use tcpdump
+	#Do this by using the usermod command where <username> is user's username:
+
+	#root #usermod -a -G tcpdump <username>
+
 }
 
 function tripwire_install {

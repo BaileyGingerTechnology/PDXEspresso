@@ -19,7 +19,7 @@ function find_byroot {
 }
 
 function find_byetc {
- 
+
 	echo "Searching etc directory   "
 	echo "Type in the name of config file OR Query to search /etc"
 

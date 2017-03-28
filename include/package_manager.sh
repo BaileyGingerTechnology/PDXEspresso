@@ -168,7 +168,7 @@ function install_pac {
   echo "6) Remove Local Package from AUR";
   echo "7) Install PACMAN Developement Tools (GCC, other compilers and build tools)";
   echo "8) Search for installed Package"
-  echo "9) Create Splunk User ( Must be Ran First, in order to start splunk" 
+  echo "9) Create Splunk User ( Must be Ran First, in order to start splunk"
   echo "10) Install Splunk and Splunk Forwarder from the AUR";
   echo "11) Run Splunk";
   echo "12) Install Splunk Universal Forwarder";
@@ -198,7 +198,7 @@ case $_APTCHOICE in
 #End pacman
 
 function install_eme {
-
+  echo $_ID;
 	source ./include/src/pkg/eme_functions.sh
 
 	EMECHOICE=

@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 # Author  : Luis M Pena
 # Date    : 12/28/2016
 # Purpose : Script that manages the scan service.
@@ -9,7 +9,7 @@ source ./include/src/general_functions.sh
 
 function main {
 
-    echo "This is the SSHD  Service Manager";
+    echo "This is the Scan Service Manager";
 
 }
 

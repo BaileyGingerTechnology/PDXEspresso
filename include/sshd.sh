@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 # Author  : Luis M Pena
 # Date    : 12/28/2016
 # Purpose : Script that manages the sshd service.
@@ -11,7 +11,7 @@ source ./include/src/sshd_functions.sh
 function main {
 
 
-    _SSHCHOICE= 
+    _SSHCHOICE=
     echo "How Would you like to manage opensshd?";
 
     echo "1) Start | Stop | Restart";
@@ -24,14 +24,11 @@ function main {
 
 case $_SSHCOICE in
 
-    1) echo manage_ssh; press_enter ;;
-    2) echo lock_down; press_enter ;;
+    1) manage_ssh; press_enter ;;
+    2) lock_down; press_enter ;;
     3) add_port ; press_enter ;;
     4) remove_port ; press_enter ;;
-    5) nuke_tables ; press_enter ;;
-    6) restore_tables ; press_enter ;;
-    7) echo "$_IPREMOVE" ; press_enter ;;
-    8) echo "$_IPINSTALL" ; press_enter ;;
+
 
     0) exit ;;
     *) echo "Enter a digit above and try not to break this program.";
