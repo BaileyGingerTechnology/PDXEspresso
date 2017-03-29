@@ -1,50 +1,48 @@
 #!/bin/bash
 # Author  : Luis M Pena
-# Date    : 1/04/2017
-# Purpose : Script that contains web server functions.
+# Date    : 3/28/2017
+# Purpose : Script that contains general web server functions.
 
+#########################################################
+## Initilize Distro Dependent Web Server Functions
+#########################################################
+function get_id {
 
-function find_apache {
+  #echo "inside find apache"
+  # Uncommonet to see ID echo $_ID
 
-  # Find current Apache directory
-  # This will be pulled in from distro
-  # will also check folders by directory for safe measure
-  # this function adds no functionallity
+  export _ID=$(sed -n '1p' < ./debug/distro/distroid.cfg)
 
-  # if it does not find the default directories of distro
-  # This function will search /var /etc /usr /opt for apache
-  _HTTPDW=$( which httpd)
-  _APACHEW=$( which apache2)
-  _NGINXW=$( which nginx )
-  _EME=$( which  )
-  _ID=
+  #echo "Getting Distro ID";
+  #echo "$_ID";
 
-  if [ ! -z "$_HTTPDW" ];
-  	then
-  		echo " Found Apaceh webserver at"
+  if [ "$_ID" == 1 ]; then
+    echo "[OKAY]: Debian Detected (Distro ID: 1)"
   fi
-}
 
 
-function remove_indexes {
-  # will remove indexes
+  if [ "$_ID" == 2 ]; then
+    echo "[OKAY]: Ubuntu Detected (Distro ID: 2)"
+  fi
 
-    echo "Removing Apache Indexes"
+  if [ "$_ID" == 3 ]; then
+    echo "[OKAY]: RedHat Detected (Distro ID: 3)"
+  fi
 
-}
 
-function add_htaccess {
+  if [ "$_ID" == 4 ]; then
+    echo "[OKAY]: CentOS Detected (Distro ID: 4)"
+  fi
 
-  echo " Adding htc access file"
-}
 
-function add_modsec {
+  if [ "$_ID" == 5 ]; then
+    echo "[OKAY]: Gentoo Detected (Distro ID: 5)"
+    echo "[OKAY]: Starting Gentoo Web Server Interface"
+    ./include/src/websrv/gentoo/start.sh
+  fi
 
-  echo "Downloading mod_security and adding owasp rules"
-}
-
-function add_proxy {
-
-  echo "configuring mod_proxy"
+  if [ "$_ID" == 6 ]; then
+    echo "[OKAY]: Arch Detected (Distro ID: 6)"
+  fi
 
 }

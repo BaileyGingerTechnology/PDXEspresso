@@ -86,6 +86,6 @@ done
 
 
 # Calling main function.
-# This loops the progra and allows a user to get .
+# This loops the program and allows a user to get .
 # Out of a sub menu and back to the main program.
 main

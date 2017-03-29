@@ -6,13 +6,12 @@
 # Include source files
 source ./include/src/general_functions.sh
 source ./include/src/webserver_functions.sh
+
 function main {
 
-    echo "This is the Web Service manager";
-
+    echo "[LOADING]: Web Service Manager.. Redirecting to Correct Distro....";
+    get_id
 
 }
-
-
 # Run Main Function
 main

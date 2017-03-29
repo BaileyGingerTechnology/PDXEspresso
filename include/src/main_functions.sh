@@ -77,10 +77,56 @@ function check_distro {
 
   echo "Found Distrobution $_DISTRO"
 
+  if [ "$_DISTRO" = "debian" ]; then
+
+    _ID=1
+    _NAME=Debian
+    echo "$_ID" > ./debug/distro/distroid.cfg
+    echo "$_NAME" >> ./debug/distro/distroid.cfg
+  fi
+
+
+  if [ "$_DISTRO" = "ubuntu" ]; then
+
+    _ID=2
+    _NAME=Ubuntu
+    echo "$_ID" > ./debug/distro/distroid.cfg
+    echo "$_NAME" >> ./debug/distro/distroid.cfg
+  fi
+
+
+  if [ "$_DISTRO" = "red hat" ]; then
+
+    _ID=3
+    _NAME=RedHat
+    echo "$_ID" > ./debug/distro/distroid.cfg
+    echo "$_NAME" >> ./debug/distro/distroid.cfg
+  fi
+
+
+  if [ "$_DISTRO" = "centos" ]; then
+
+    _ID=4
+    _NAME=CentOS
+    echo "$_ID" > ./debug/distro/distroid.cfg
+    echo "$_NAME" >> ./debug/distro/distroid.cfg
+  fi
+
+
   if [ "$_DISTRO" = "gentoo" ]; then
 
-     _ID=7
+     _ID=5
+     _NAME=Gentoo
      echo "$_ID" > ./debug/distro/distroid.cfg
+     echo "$_NAME" >> ./debug/distro/distroid.cfg
+  fi
+
+  if [ "$_DISTRO" = "arch" ]; then
+
+    _ID=6
+    _NAME=Arch
+    echo "$_ID" > ./debug/distro/distroid.cfg
+    echo "$_NAME" >> ./debug/distro/distroid.cfg
   fi
 
 }
