@@ -12,19 +12,35 @@ source ./include/src/main_functions.sh
 
 
 echo "
-______________   __  _____
-| ___ \  _  \ \ / / |  ___|
-| |_/ / | | |\ V /  | |__ ___ _ __  _ __ ___  ___ ___  ___
-|  __/| | | |/   \  |  __/ __| '_ \| '__/ _ \/ __/ __|/ _ \|
-| |   | |/ // /^\ \ | |__\__ \ |_) | | |  __/\__ \__ \ (_) |
-\_|   |___/ \/   \/ \____/___/ .__/|_|  \___||___/___/\___/
-                             | |
-                             |_|
+    ______________   __  _____
+    | ___ \  _  \ \ / / |  ___|
+    | |_/ / | | |\ V /  | |__ ___ _ __  _ __ ___  ___ ___  ___
+    |  __/| | | |/   \  |  __/ __| '_ \| '__/ _ \/ __/ __|/ _ \|
+    | |   | |/ // /^\ \ | |__\__ \ |_) | | |  __/\__ \__ \ (_) |
+    \_|   |___/ \/   \/ \____/___/ .__/|_|  \___||___/___/\___/
+                                 | |
+                                 |_|
 
-Author: Luis Miguel Pena @poszy
-Beta Version: 0.5
-Email: pena.m.luis@gmail.com
-For Latest Version Visit https://github.com/poszy/PDXEspresso
+    Beta Version: 0.7
+    Email: pena.m.luis@gmail.com
+    For Latest Version Visit https://github.com/poszy/PDXEspresso
+
+    PDXEspresso: A Collection of SysAdmin Scripts For Automation.
+    Copyright (C) 2016-2017 Luis Miguel Pena @poszy
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 ";
 
 function main {
