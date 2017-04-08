@@ -30,10 +30,10 @@ For Latest Version Visit https://github.com/poszy/PDXEspresso
 function main {
 
 #Run start functions
-check_distro
+
 check_root
 create_dirs
-
+check_distro
 
 echo -e "\n"
 
