@@ -43,6 +43,9 @@ function get_id {
 
   if [ "$_ID" == 6 ]; then
     echo "[OKAY]: Arch Detected (Distro ID: 6)"
+    echo "[OKAY]: Starting Arch Web Server Interface"
+    ./include/src/websrv/arch/start.sh
+
   fi
 
 }
