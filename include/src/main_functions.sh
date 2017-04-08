@@ -3,6 +3,9 @@
 # Date    : 12/27/2016
 # Purpose : source file to include main.sh functions.
 # Check to see if user has SUPER USER ACCESS
+
+source ./include/etc/color_codes.sh
+
 function check_root {
 
 echo "You Are Currently using Bash $( bash --version )"
@@ -20,11 +23,11 @@ function create_dirs {
 if [ -d "./debug" ];
 
 then
-
-    echo -e " \nDirectories already exist! "
+    #echo -e "$_RED" "21321321321" "$_WHITE"
+    echo -e "$_MSGOKAY" "Directories already exist! "
 
 else
-    echo -e "\nCreating Directories ..."
+    echo -e "$_MSGLOADING:Creating Directories ..."
     #Main Debug Folder
 
     mkdir debug
@@ -54,7 +57,7 @@ else
 
     chmod -R 777 ./debug
 
-
+    echo -e "$_MSGDONE "
 fi
 
 }
@@ -71,11 +74,13 @@ function check_distro {
 
   if [ -z $_DISTRO ]; then
 
-      _DISTRO='None of these distros were found, update your list '
+      _DISTRO='[ERROR]: None of these distros were found, update your list '
 
   fi
 
-  echo "Found Distrobution $_DISTRO"
+  echo "$_MSGSUCCESS Found Distrobution $_DISTRO "
+  echo "$_MSGWARNING"
+  echo "$_MSGERROR"
 
   if [ "$_DISTRO" = "debian" ]; then
 
@@ -139,16 +144,15 @@ function clear_debug {
 if [ -d "./debug" ];
 
 then
-    echo " Directories  exist!.... "
-    echo " Now deleting ...."
+    echo "$_MSGFOUND Directories Exist!.. "
+    echo "$_MSGLOADING Now deleting...."
 
     rm -R ./debug
 
-    echo "Done..."
+    echo "$_MSGDONE All Cleaned Up!"
 
 else
-    echo " Directories do not exist, nothing to delete ..."
-    #Main Debug Folder
+    echo "$_MSGWARNING Directories Do Not Exist, Nothing To Delete..."
 
 fi
 

@@ -9,7 +9,10 @@
 
 source ./include/src/general_functions.sh
 source ./include/src/main_functions.sh
+source ./include/etc/color_codes.sh
 
+#Set Colors
+backgroundFG
 
 echo "
     ______________   __  _____
