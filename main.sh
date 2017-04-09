@@ -64,7 +64,7 @@ echo "What would you like to do?";
 
 echo "1)  Searh Ports";
 echo "2)  Create Backups"
-echo "3)  User & Group Management"; 
+echo "3)  User & Group Management";
 echo "4)  Search For Config Files & Services";
 echo "5)  Display CPU Info";
 echo "6)  SSH Management";
@@ -92,7 +92,7 @@ case $INPUT in
     9) init_package ; press_enter ;;
     10) init_third ; press_enter ;;
     11) tail_auth ; press_enter ;;
-    12) clear_debug ; press_enter ;;
+    12) clear_dirs ; press_enter ;;
     13) stop_service ; press_enter ;;
 
 

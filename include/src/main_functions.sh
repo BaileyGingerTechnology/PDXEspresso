@@ -20,7 +20,7 @@ function check_root {
 
 function create_dirs {
 
-  if [ -d "./debug" ];
+  if [ -d "./debug" ] && [ -d "./backups" ];
 
   then
 
@@ -61,8 +61,16 @@ function create_dirs {
 
     echo -e "$_MSGOKAY" "Setting Debug Directory Permisions.."
     chmod -R 777 ./debug
-    echo -e "$_MSGSUCCESS All Directories Succsessfully Created."
 
+    # Backup Directory
+
+    mkdir ./backups
+    echo -e "$_MSGOKAY" "Backup Directory Created!"
+
+    echo -e "$_MSGOKAY" "Setting Backup Directory Permisions.."
+    chmod -R 777 ./backups
+
+    echo -e "$_MSGSUCCESS All Directories Succsessfully Created."
     echo -e "$_MSGDONE" "Initial Setup Complete!"
   fi
 
@@ -144,16 +152,22 @@ function check_distro {
 
 
 
-function clear_debug {
+function clear_dirs {
 
 
-  if [ -d "./debug" ];
+  if [ -d "./debug" ] && [ -d "./backups" ];
 
   then
     echo "$_MSGFOUND Directories Exist!.. "
     echo "$_MSGLOADING Now deleting...."
 
+    echo $_MSGLOADING "Clearning Debug Folder"
     rm -R ./debug
+    echo $_MSGSUCCESS
+
+    echo $_MSGLOADING "Clearning Backups Folder"
+    rm -R ./backups
+    echo $_MSGSUCCESS
 
     echo "$_MSGDONE All Cleaned Up!"
 
