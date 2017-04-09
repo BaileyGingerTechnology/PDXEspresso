@@ -63,35 +63,37 @@ until [ "$INPUT" = "0" ]; do
 echo "What would you like to do?";
 
 echo "1)  Searh Ports";
-echo "2)  User & Group Management"; #Check Loged in users
-echo "3)  Search For Config Files & Services";
-echo "4)  Display CPU Info";
-echo "5)  SSH Management";
-echo "6)  Web Server Management";
-echo "7)  IP Tables Management";
-echo "8)  Package Management";
-echo "9)  Install Third Party Software (Splunk,OSSEC)";
-echo "10) Tail Auth log";
-echo "11) clear all debug logs and clear all temp files";
-echo "12) Find/Stop Services ";
-echo "13) Hash Entire System with Tripwire";
+echo "2)  Create Backups"
+echo "3)  User & Group Management"; 
+echo "4)  Search For Config Files & Services";
+echo "5)  Display CPU Info";
+echo "6)  SSH Management";
+echo "7)  Web Server Management";
+echo "8)  IP Tables Management";
+echo "9)  Package Management";
+echo "10)  Install Third Party Software (Splunk,OSSEC)";
+echo "11) Tail Auth Log";
+echo "12) Clear All Debug Logs And Clear All Temp Files";
+echo "13) Find/Stop Services ";
+echo "14) Hash Entire System With Tripwire";
 
 read INPUT
 
 case $INPUT in
 
     1) scan_ports ; press_enter ;;
-    2) init_userman ; press_enter ;;
-    3) init_findfiles ; press_enter ;;
-    4) find_cpui ; press_enter ;;
-    5) init_sshd ; press_enter ;;
-    6) init_webserver ; press_enter ;;
-    7) init_tables ; press_enter ;;
-    8) init_package ; press_enter ;;
-    9) init_third ; press_enter ;;
-    10) tail_auth ; press_enter ;;
-    11) clear_debug ; press_enter ;;
-    12) stop_service ; press_enter ;;
+    2) init_backup; press_enter ;;
+    3) init_userman ; press_enter ;;
+    4) init_findfiles ; press_enter ;;
+    5) find_cpui ; press_enter ;;
+    6) init_sshd ; press_enter ;;
+    7) init_webserver ; press_enter ;;
+    8) init_tables ; press_enter ;;
+    9) init_package ; press_enter ;;
+    10) init_third ; press_enter ;;
+    11) tail_auth ; press_enter ;;
+    12) clear_debug ; press_enter ;;
+    13) stop_service ; press_enter ;;
 
 
     0) exit ;;

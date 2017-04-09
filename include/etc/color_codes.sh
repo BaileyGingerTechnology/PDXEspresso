@@ -16,39 +16,37 @@
 ## End
 
 #Forground Colors
-export _BLACK=$(tput setaf 0)
-export _RED=$(tput setaf 1)
-export _GREEN=$(tput setaf 2)
-export _ORANGE=$(tput setaf 3)
-export _BLUE=$(tput setaf 4)
 export _MAGENTA=$(tput setaf 5)
+export _ORANGE=$(tput setaf 3)
+export _WHITE=$(tput setaf 9)
+export _BLACK=$(tput setaf 0)
+export _GREEN=$(tput setaf 2)
+export _BLUE=$(tput setaf 4)
 export _CYAN=$(tput setaf 6)
 export _GRAY=$(tput setaf 7)
-export _WHITE=$(tput setaf 9)
+export _RED=$(tput setaf 1)
 
 # Background Colors
-export _BLACKBG=$(tput setab 0)
-export _REDBG=
-export _GREENBG=$(tput setb 2)
-export _ORANGEBG=$(tput setab 3)
-export _BLUEBG=$(tput setab 4)
 export _MAGENTABG=$(tput setab 5)
+export _ORANGEBG=$(tput setab 3)
+export _BLACKBG=$(tput setab 0)
+export _GREENBG=$(tput setb 2)
+export _BLUEBG=$(tput setab 4)
 export _CYANBG=$(tput setab 6)
 export _GRAYBG=$(tput setab 7)
+export _REDBG=$(tput setab 9)
 export _WHITEBG=$(tput sgr 1)
 export _BGCL=$(tput sgr 0)
 
 # Notification Codes With White Backgrounds
-_MSGOKAY=$(echo -e $_BLACK $_GRAYBG"[OKAY]:"$_WHITE $_GREENBG)
-_MSGSUCCESS=$(echo -e $_BLUE $_GRAYBG"[SUCCESS]:"$_WHITE $_GREENBG)
 _MSGWARNING=$(echo -e $_ORANGE $_GRAYBG"[WARNING]:"$_WHITE $_GREENBG)
-_MSGERROR=$(echo -e $_RED $_GRAYBG"[ERROR]:"$_WHITE $_GREENBG)
 _MSGLOADING=$(echo -e $_CYAN $_GRAYBG"[LOADING]:"$_WHITE $_GREENBG)
-_MSGDONE=$(echo -e $_BLACK $_GRAYBG"[DONE]:"$_WHITE $_GREENBG)
+_MSGSUCCESS=$(echo -e $_BLUE $_GRAYBG"[SUCCESS]:"$_WHITE $_GREENBG)
 _MSGFOUND=$(echo -e $_MAGENTA $_GRAYBG"[FOUND]:"$_WHITE $_GREENBG)
-
+_MSGERROR=$(echo -e $_RED $_GRAYBG"[ERROR]:"$_WHITE $_GREENBG)
+_MSGOKAY=$(echo -e $_BLACK $_GRAYBG"[OKAY]:"$_WHITE $_GREENBG)
+_MSGDONE=$(echo -e $_BLACK $_GRAYBG"[DONE]:"$_WHITE $_GREENBG)
 #_MSGSUCCESS=$(echo -e "$(tput setaf 4) $(tput setab 7)"[SUCCESS:]" $(tput setaf 9)$(tput setab 2)")
-
 
 function backgroundFG(){
 
