@@ -67,6 +67,14 @@ function create_dirs {
     mkdir ./backups
     echo -e "$_MSGOKAY" "Backup Directory Created!"
 
+      # etc backup
+      mkdir ./backups/etc
+      touch ./backups/etc/etc_counter.txt
+
+      # /var/log backup
+      mkdir ./backups/varlog
+      touch ./backups/etc/varlog_counter.txt
+
     echo -e "$_MSGOKAY" "Setting Backup Directory Permisions.."
     chmod -R 777 ./backups
 
