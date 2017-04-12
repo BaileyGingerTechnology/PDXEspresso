@@ -24,7 +24,7 @@ echo "
                                  | |
                                  |_|
 
-    Beta Version: 0.7
+    Beta Version: 0.7.1
     Email: pena.m.luis@gmail.com
     For Latest Version Visit https://github.com/poszy/PDXEspresso
 
