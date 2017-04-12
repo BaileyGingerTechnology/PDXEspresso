@@ -1,5 +1,5 @@
 # PDXEspresso
-Administrastion scripts for a Linux based host.
+Admin Scripts for a Linux based host.
 
 # Sciript Tree
 manage.sh
@@ -137,6 +137,6 @@ HOWEVER that causes a permission denied bug whenever the splunk forwarder is ran
 I have no idea what is causing this but it does not affect the functionality of the splunk server nor the 
 splunk forwarder. At least to my knowledge
 
-# April 11th 2017
+# April 12th 2017
 Version 0.7.1 . Added new functionality to exsisting functions such as the backup functions and webserver functions. I finally was able to add a distro detection
-file that other sub scripts will read off of, this will allow me to redirect the user to different subscripts without writting additional code. So far most of the code seems redundant, I rewrite code that should be put in classes and instantiated from. But there is not a native way of writting classes & objects in bash without doing some voodoo that I am not yet so sure of. 
+file that other sub scripts will read off of, this will allow me to redirect the user to different subscripts without writting additional code. So far most of the code seems redundant, I rewrite code that should be put in classes and instantiated from. But there is not a native way of writting classes & objects in bash without doing some voodoo that I am not yet so sure of. I also added the GNU GPL V3. 
