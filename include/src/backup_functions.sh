@@ -2,6 +2,8 @@
 # Author  : Luis M Pena
 # Date    : 4/09/2017
 # Purpose : Script that contains backup and restore functions.
+source ./include/src/main_functions.sh
+source ./include/etc/colors.sh
 
 
 function backup_config {
@@ -73,22 +75,41 @@ function backup_etc {
 
   if [ ! -f ./backups/etc/etc_backup0.tar.gz* ]; then
 
-      tar -cvf ./backups/etc/etc_backup0.tar.gz."$(date +%F_%R)" /etc
-      echo 1 > ./backups/etc/etc_counter.txt
+        tar -cvf ./backups/etc/etc_backup0.tar.gz."$(date +%F_%R)" /etc
+        echo 1 > ./backups/etc/etc_counter.txt
   else
-  export i=$(sed -n '1p' < ./backups/etc/etc_counter.txt)
-      if [ "$i" -ge 1 ]; then
-          tar -cvf ./backups/etc/etc_backup"$i".tar.gz."$(date +%F_%R)" /etc
-          ((i++))
-          echo "$i" > ./backups/etc/etc_counter.txt
-      fi
- fi
+
+    export i=$(sed -n '1p' < ./backups/etc/etc_counter.txt)
+
+        if [ "$i" -ge 1 ]; then
+            tar -cvf ./backups/etc/etc_backup"$i".tar.gz."$(date +%F_%R)" /etc
+            ((i++))
+            echo "$i" > ./backups/etc/etc_counter.txt
+        fi
+   fi
 
 
 }
 
 function backup_apache {
-  echo "yes"
+  echo "Creating Back up of /var/www/html & /var/"
+
+  echo "If There is already a copy of /var/log then the new copy will be incremented by 1"
+  echo "Example: varlog_backup1.tar.gz.date will auto increment to varlog_backup2.tar.gz.date"
+
+
+  if [ ! -f ./backups/varlog/varlog_backup0.tar.gz* ]; then
+
+      tar -cvf ./backups/varlog/varlog_backup0.tar.gz."$(date +%F_%R)" /var/log
+      echo 1 > ./backups/varlog/varlog_counter.txt
+  else
+  export i=$(sed -n '1p' < ./backups/varlog/varlog_counter.txt)
+      if [ "$i" -ge 1 ]; then
+          tar -cvf ./backups/varlog/varlog_backup"$i".tar.gz."$(date +%F_%R)" /var/log
+          ((i++))
+          echo "$i" > ./backups/varlog/varlog_counter.txt
+      fi
+  fi
 }
 
 function backup_log {
@@ -113,7 +134,24 @@ function backup_log {
 }
 
 function backup_root {
-  echo "yes"
+  echo "Creating Back up of / "
+
+  echo "If There is already a copy of / then the new copy will be incremented by 1"
+  echo "Example:root_backup1.tar.gz.date will auto increment to root_backup2.tar.gz.date"
+
+
+  if [ ! -f ./backups/root/root_backup0.tar.gz* ]; then
+
+      tar -cvf ./backups/root/root_backup0.tar.gz."$(date +%F_%R)" /
+      echo 1 > ./backups/root/root_counter.txt
+  else
+  export i=$(sed -n '1p' < ./backups/root/root_counter.txt)
+      if [ "$i" -ge 1 ]; then
+          tar -cvf ./backups/root/root_backup"$i".tar.gz."$(date +%F_%R)" /
+          ((i++))
+          echo "$i" > ./backups/root/root_counter.txt
+      fi
+  fi
 }
 
 function backup_chron {

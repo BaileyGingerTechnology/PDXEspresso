@@ -3,6 +3,8 @@
 # Date    : 3/28/2017
 # Purpose : Script that contains general web server functions.
 
+
+## TURN THIS INTO A GENERAL FUNCTION AND THEN IMPORT FUNCTION AND REDIRECT
 #########################################################
 ## Initilize Distro Dependent Web Server Functions
 #########################################################
