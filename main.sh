@@ -15,6 +15,7 @@ source ./include/etc/color_codes.sh
 backgroundFG
 
 echo "
+    This software is very much heavily based on:
     ______________   __  _____
     | ___ \  _  \ \ / / |  ___|
     | |_/ / | | |\ V /  | |__ ___ _ __  _ __ ___  ___ ___  ___
@@ -44,6 +45,8 @@ echo "
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+    I as Ginger Technology have done nothing but add some parts and a
+    fancy HTML output to it.
 ";
 
 function main {
@@ -75,7 +78,7 @@ echo "10)  Install Third Party Software (Splunk,OSSEC)";
 echo "11) Tail Auth Log";
 echo "12) Clear All Debug Logs And Clear All Temp Files";
 echo "13) Find/Stop Services ";
-echo "14) Hash Entire System With Tripwire";
+echo "14) Generate HTML Output";
 
 read INPUT
 
@@ -94,6 +97,7 @@ case $INPUT in
     11) tail_auth ; press_enter ;;
     12) clear_dirs ; press_enter ;;
     13) stop_service ; press_enter ;;
+    14) generate_html ; press_enter ;;
 
 
     0) exit ;;

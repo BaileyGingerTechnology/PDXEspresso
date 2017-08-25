@@ -418,3 +418,7 @@ function init_third {
 function init_backup {
   bash ./include/backup.sh
 }
+
+function generate_html {
+  bash ./include/html.sh
+}
